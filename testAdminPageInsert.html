@@ -1,0 +1,163 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Insert Page</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="js/adminPageInsert.js"></script>
+    <link href="css/adminPageInsert.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="node_modules/mocha/mocha.js"></script>
+    <script src="node_modules/chai/chai.js"></script>
+    <script>mocha.setup('bdd')</script>
+    <script src="tests/testAdminPageInsert.js"></script>
+
+    <script>
+        setTimeout(function() {
+            mocha.run();
+        }, 2000)
+    </script>
+</head>
+<body>
+<div id="mocha"></div>
+<div class="container">
+    <div class="navbar">
+        <img src="imgs/logo.png" class="logo" alt="Aurora University Logo">
+        <span class="navTitle">Lost and Found Records</span>
+        <nav>
+            <ul id="menuList">
+                <li><a href="adminPage.html">Home</a></li>
+                <li><a href="adminPageClaimed.html">Claimed Records</a></li>
+                <li><a class="active" href="adminPageInsert.html">Insert New Record</a></li>
+                <li><a href="loginPage.html">Log Out</a></li>
+            </ul>
+        </nav>
+        <a href="javascript:void(0);" class="menu-icon" onclick="toggleMenu()"><i class="fa fa-bars"></i></a>
+    </div>
+</div>
+
+<br><br><br><br>
+
+<main class="input-container">
+    <h2>Insert a New Record</h2>
+
+    <div class="row">
+        <div class="col-25">
+            <label for="item">Item:</label>
+        </div>
+        <div class="col-75">
+            <input type="text" id="item" name="item" placeholder="Item...">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-25">
+            <label for="description">Description:</label>
+        </div>
+        <div class="col-75">
+            <input type="text" id="description" name="description" placeholder="Description...">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-25">
+            <label for="location">Location:</label>
+        </div>
+        <div class="col-75">
+            <select id="location" name="location">
+                <option value="Alumni Hall">Alumni Hall</option>
+                <option value="Dining Hall">Dining Hall</option>
+                <option value="Dunham Hall">Dunham Hall</option>
+                <option value="Eckhart Hall">Eckhart Hall</option>
+                <option value="Fitness Center">Fitness Center</option>
+                <option value="Institute for Collaboration">Institute for Collaboration</option>
+                <option value="Outside">Outside</option>
+                <option value="Phillips Library">Phillips Library</option>
+                <option value="Spartan Spot">Spartan Spot</option>
+                <option value="Stephens Hall">Stephens Hall</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-25">
+            <label for="location_description">Location Description:</label>
+        </div>
+        <div class="col-75">
+            <input type="text" id="location_description" name="location_description" placeholder="Location Description...">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-25">
+            <label for="date">Date:</label>
+        </div>
+        <div class="col-75">
+            <input type="date" id="date" name="date">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-25">
+            <label for="adminID">Admin ID:</label>
+        </div>
+        <div class="col-75">
+            <input type="text" id="adminID" name="adminID" placeholder="Admin ID #">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-25">
+            <label for="witness">Witness:</label>
+        </div>
+        <div class="col-75">
+            <input type="text" id="witness" name="witness" placeholder="Full Name...">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-25">
+            <label for="auID">Student ID:</label>
+        </div>
+        <div class="col-75">
+            <input type="text" id="auID" name="auID" placeholder="Student ID #">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-25">
+            <label for="phone">Phone Number:</label>
+        </div>
+        <div class="col-75">
+            <input type="tel" id="phone" name="phone" placeholder="XXX-XXX-XXXX" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+        </div>
+    </div>
+
+    <br>
+
+    <div class="row">
+        <input type="submit" value="Insert" onClick="insertNew()">
+    </div>
+</main>
+
+<script>
+    let x = document.getElementById("menuList");
+
+    x.style.maxHeight = "0px";
+
+    //can toggle menu on and off on click off menu icon
+    function toggleMenu() {
+        if(x.style.maxHeight === "0px")
+        {
+            x.style.maxHeight = "130px";
+        } else {
+            x.style.maxHeight = "0px";
+        }
+
+    }
+</script>
+
+</body>
+</html>

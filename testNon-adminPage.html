@@ -1,0 +1,78 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Page</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="js/non-adminPage.js"></script>
+    <link href="css/non-adminPage.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="node_modules/mocha/mocha.js"></script>
+    <script src="node_modules/chai/chai.js"></script>
+    <script>mocha.setup('bdd')</script>
+    <script src="tests/testAdminPage.js"></script>
+
+    <script>
+        setTimeout(function() {
+            mocha.run();
+        }, 2000)
+    </script>
+</head>
+
+<body>
+<div id="mocha"></div>
+<div class="container">
+    <div class="navbar">
+        <img src="imgs/search-icon.png" class="icon" alt="Search Icon">
+
+        <div class="search-box">
+            Search<input type="text" name="search" id="search" class="form-control"/>
+        </div>
+
+        <img src="imgs/logo.png" class="logo" alt="Aurora University Logo">
+
+        <nav>
+            <ul id="menuList">
+                <li><a href="loginPage.html">Exit</a></li>
+            </ul>
+        </nav>
+
+        <a href="javascript:void(0);" class="menu-icon" onclick="toggleMenu()"><i class="fa fa-bars"></i></a>
+    </div>
+</div>
+
+<div class="table-container">
+    <h1 class="heading">Current Records</h1>
+    <div id="recordArea">
+    </div>
+</div>
+
+<script>
+    let x = document.getElementById("menuList");
+
+    x.style.maxHeight = "0px";
+
+    //can toggle menu on and off on click off menu icon
+    function toggleMenu() {
+        if(x.style.maxHeight === "0px")
+        {
+            x.style.maxHeight = "130px";
+        } else {
+            x.style.maxHeight = "0px";
+        }
+    }
+
+    //can toggle search box on and off on click on search icon
+    $(document).ready(function () {
+        $(".icon").click(function (){
+            $(".search-box").toggle();
+        });
+    });
+
+</script>
+
+</body>
+</html>
